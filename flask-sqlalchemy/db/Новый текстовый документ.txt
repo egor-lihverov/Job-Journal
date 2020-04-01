@@ -1,0 +1,65 @@
+db_session.global_init("db/mars_explorer.db")
+session = db_session.create_session()
+user = users.User()
+user.surname = "Scott"
+user.name = "Ridley"
+user.age = 21
+user.position = "captain"
+user.speciality = "research engineer"
+user.address = "module_1"
+user.email = "scott_chief@mars.org"
+session.add(user)
+
+user = users.User()
+user.surname = "Домик"
+user.name = "Рита"
+user.age = 25
+user.position = "Матрос"
+user.speciality = "Врач"
+user.address = "module_2"
+user.email = "Rita.Domik@mars.org"
+session.add(user)
+
+user = users.User()
+user.surname = "Крыша"
+user.name = "Ярослав"
+user.age = 30
+user.position = "Мл. лейтенант"
+user.speciality = "Сантехник"
+user.address = "module_3"
+user.email = "Yar.Krish@mars.org"
+session.add(user)
+
+user = users.User()
+user.surname = "Поп"
+user.name = "Радомир"
+user.age = 50
+user.position = "Главный старшина"
+user.speciality = "Ботаник"
+user.address = "module_4"
+user.email = "Rad.Pop@mars.org"
+session.add(user)
+
+job = users.Jobs()
+job.team_leader = 1
+job.job = 'deployment of residential modules 1 and 2'
+job.work_size = 15
+job.collaborators = '2, 3'
+job.is_finished = False
+session.add(job)
+
+job = users.Jobs()
+job.team_leader = 1
+job.job = 'Выращивание растений'
+job.work_size = 10
+job.collaborators = '4'
+job.is_finished = False
+session.add(job)
+
+job = users.Jobs()
+job.team_leader = 1
+job.job = 'Создание водопровода'
+job.work_size = 12
+job.collaborators = '1, 3'
+job.is_finished = False
+session.add(job)

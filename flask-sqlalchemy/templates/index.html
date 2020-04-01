@@ -1,0 +1,58 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<style>
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+
+border-collapse: collapse;
+text-align: center;
+}
+th{
+background: #AFCDE7;
+color: white;
+
+padding: 10px 20px;
+}
+td:last-child{
+background: #20B2AA
+}
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+
+}
+td {
+background: #D8E6F3;
+padding: 10px 20px;
+}
+th:first-child, td:first-child {
+text-align: left;
+}
+</style>
+<h1>Jobs</h1>
+{% for item in news %}
+<h3>Action #{{ loop.index }}</h3>
+<table>
+<tr>
+  <th width=500px>Title of activity</th>
+  <th>Team Leader</th>
+  <th>Duration</th>
+  <th>List of collaborators</th>
+  <th>is finished</th>
+</tr>
+
+<tr>
+  <td>{{ item.job }}</td>
+  <td>{{ item.user.name }} {{ item.user.surname }}</td>
+  <td>{{ item.work_size }}</td>
+  <td>{{ item.collaborators }}</td>
+  <td>{{ item.is_finished }}</td>
+</tr>
+</table>
+
+{% endfor %}
+<a href="jobs" class="btn btn-secondary">Add job</a>
+{% endblock %}
